@@ -1,0 +1,231 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://nami.exchange
+    description: Nami Exchange API
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+security:
+  - ApiKeyAuth: []
+paths:
+  /api/v3/spot/trade:
+    get:
+      summary: Order Trade history
+      parameters:
+        - name: side
+          in: query
+          description: Side `of the order (buy/sell)
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: Trading pair symbol
+          required: false
+          schema:
+            type: string
+        - name: hideCanceled
+          in: query
+          description: Hide canceled orders
+          required: false
+          schema:
+            type: boolean
+        - name: pageSize
+          in: query
+          description: Number of orders per page
+          required: false
+          schema:
+            type: integer
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+        - name: timeFrom
+          in: query
+          description: Filter orders from this time
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: timeTo
+          in: query
+          description: Filter orders up to this time
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: signature
+          in: query
+          required: true
+          description: The signature is the secret key encoded as ASCII data. It is required for authenticating the request.
+          schema:
+            type: string
+        - name: timestamp
+          in: query
+          required: true
+          description: The timestamp is the time the request was sent.
+          schema:
+            type: string
+            format: date-time
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        symbol:
+                          type: string
+                          example: "BTCUSDT"
+                          description: The trading pair symbol of the order
+                        side:
+                          type: string
+                          example: "BUY"
+                          description: The side of the order (buy/sell)
+                        displayingId:
+                          type: string
+                          example: "2389377"
+                          description: The displaying ID of the order
+                        feeMetadata:
+                          type: object
+                          properties:
+                            feeValue:
+                              type: number
+                              example: 0.1627060274
+                              description: The fee value of the order
+                            feeAssetId:
+                              type: integer
+                              example: 22
+                              description: The ID of the fee asset of the order
+                            feeAsset:
+                              type: string
+                              example: "USDT"
+                              description: The fee asset of the order
+                          description: The fee metadata of the order
+                        createdAt:
+                          type: string
+                          format: date-time
+                          example: "2024-07-02T07:03:38.642Z"
+                          description: The creation time of the order
+                        flag:
+                          type: null
+                          description: The flag of the order
+                        baseQty:
+                          type: number
+                          example: 0.00259
+                          description: The base quantity of the order
+                        quoteQty:
+                          type: number
+                          example: 162.7060274
+                          description: The quote quantity of the order
+                        price:
+                          type: number
+                          example: 62820.86
+                          description: The price of the order
+                        baseAssetId:
+                          type: integer
+                          example: 9
+                          description: The ID of the base asset of the order
+                        quoteAssetId:
+                          type: integer
+                          example: 22
+                          description: The ID of the quote asset of the order
+                        
+      x-tryit-out:
+        method: GET
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        properties:
+                        symbol:
+                          type: string
+                          example: "BTCUSDT"
+                          description: The trading pair symbol of the order
+                        side:
+                          type: string
+                          example: "BUY"
+                          description: The side of the order (buy/sell)
+                        displayingId:
+                          type: string
+                          example: "2389377"
+                          description: The displaying ID of the order
+                        feeMetadata:
+                          type: object
+                          properties:
+                            feeValue:
+                              type: number
+                              example: 0.1627060274
+                              description: The fee value of the order
+                            feeAssetId:
+                              type: integer
+                              example: 22
+                              description: The ID of the fee asset of the order
+                            feeAsset:
+                              type: string
+                              example: "USDT"
+                              description: The fee asset of the order
+                          description: The fee metadata of the order
+                        createdAt:
+                          type: string
+                          format: date-time
+                          example: "2024-07-02T07:03:38.642Z"
+                          description: The creation time of the order
+                        flag:
+                          type: null
+                          description: The flag of the order
+                        baseQty:
+                          type: number
+                          example: 0.00259
+                          description: The base quantity of the order
+                        quoteQty:
+                          type: number
+                          example: 162.7060274
+                          description: The quote quantity of the order
+                        price:
+                          type: number
+                          example: 62820.86
+                          description: The price of the order
+                        baseAssetId:
+                          type: integer
+                          example: 9
+                          description: The ID of the base asset of the order
+                        quoteAssetId:
+                          type: integer
+                          example: 22
+                          description: The ID of the quote asset of the order

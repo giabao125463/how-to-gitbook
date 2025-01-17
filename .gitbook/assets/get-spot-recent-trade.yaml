@@ -1,0 +1,92 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://nami.exchange
+    description: Nami Exchange API
+paths:
+  /api/v3/spot/recent_trade:
+    get:
+      summary: Recent Trade
+      parameters:
+        - name: symbol
+          in: query
+          description: Trading pair symbol
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        S:
+                          type: string
+                          example: "SELL"
+                        s:
+                          type: string
+                          example: "BTCUSDT"
+                        p:
+                          type: number
+                          example: 62948
+                        q:
+                          type: string
+                          example: "0.00027000"
+                        Q:
+                          type: integer
+                          example: 17
+                        t:
+                          type: integer
+                          example: 1721117625675
+      x-tryit-out:
+        method: GET
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: "ok"
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          S:
+                            type: string
+                            example: "SELL"
+                          s:
+                            type: string
+                            example: "BTCUSDT"
+                          p:
+                            type: number
+                            example: 62948
+                          q:
+                            type: string
+                            example: "0.00027000"
+                          Q:
+                            type: integer
+                            example: 17
+                          t:
+                            type: integer
+                            example: 1721117625675

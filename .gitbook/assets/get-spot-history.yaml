@@ -1,0 +1,341 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://nami.exchange
+    description: Nami Exchange API
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+security:
+  - ApiKeyAuth: []
+paths:
+  /api/v4/spot/history:
+    get:
+      summary: Order history
+      parameters:
+        - name: side
+          in: query
+          description: Side of the order (buy/sell)
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: Trading pair symbol
+          required: false
+          schema:
+            type: string
+        - name: hideCanceled
+          in: query
+          description: Hide canceled orders
+          required: false
+          schema:
+            type: boolean
+        - name: pageSize
+          in: query
+          description: Number of orders per page
+          required: false
+          schema:
+            type: integer
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+        - name: timeFrom
+          in: query
+          description: Filter orders from this time
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: timeTo
+          in: query
+          description: Filter orders up to this time
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: signature
+          in: query
+          required: true
+          description: The signature is the secret key encoded as ASCII data. It is required for authenticating the request.
+          schema:
+            type: string
+        - name: timestamp
+          in: query
+          required: true
+          description: The timestamp is the time the request was sent.
+          schema:
+            type: string
+            format: date-time
+      security:
+        - ApiKeyAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        price:
+                          type: number
+                          example: 0
+                          description: The price of the order
+                        stopPrice:
+                          type: null
+                          description: The stop price of the order
+                        executedPrice:
+                          type: number
+                          example: 3394.3322747747743
+                          description: The executed price of the order
+                        quantity:
+                          type: number
+                          example: 0.222
+                          description: The quantity of the order
+                        executedQty:
+                          type: number
+                          example: 0.222
+                          description: The executed quantity of the order
+                        quoteQty:
+                          type: number
+                          example: 753.541765
+                          description: The quote quantity of the order
+                        executedQuoteQty:
+                          type: number
+                          example: 753.541765
+                          description: The executed quote quantity of the order
+                        useQuoteQty:
+                          type: boolean
+                          example: false
+                          description: Whether to use quote quantity for the order
+                        liquidityStatus:
+                          type: integer
+                          example: 0
+                          description: The liquidity status of the order
+                        liquiditySymbol:
+                          type: string
+                          example: "ETHUSDT"
+                          description: The liquidity symbol of the order
+                        liquidityUsdtPrice:
+                          type: number
+                          example: 1
+                          description: The liquidity USDT price of the order
+                        liquidityTransferPrice:
+                          type: number
+                          example: 0
+                          description: The liquidity transfer price of the order
+                        liquidityOrderId:
+                          type: null
+                          description: The liquidity order ID of the order
+                        liquidityTransferFee:
+                          type: number
+                          example: 0
+                          description: The liquidity transfer fee of the order
+                        limitPrice:
+                          type: number
+                          example: 0
+                          description: The limit price of the order
+                        internalError:
+                          type: boolean
+                          example: false
+                          description: Whether there was an internal error with the order
+                        displayingId:
+                          type: integer
+                          example: 434256
+                          description: The displaying ID of the order
+                        userId:
+                          type: integer
+                          example: 18
+                          description: The ID of the user who placed the order
+                        side:
+                          type: string
+                          example: "SELL"
+                          description: The side of the order (buy/sell)
+                        type:
+                          type: string
+                          example: "MARKET"
+                          description: The type of the order
+                        symbol:
+                          type: string
+                          example: "ETHUSDT"
+                          description: The trading pair symbol of the order
+                        baseAsset:
+                          type: string
+                          example: "ETH"
+                          description: The base asset of the order
+                        baseAssetId:
+                          type: integer
+                          example: 2
+                          description: The ID of the base asset of the order
+                        quoteAsset:
+                          type: string
+                          example: "USDT"
+                          description: The quote asset of the order
+                        quoteAssetId:
+                          type: integer
+                          example: 22
+                          description: The ID of the quote asset of the order
+                        status:
+                          type: string
+                          example: "FILLED"
+                          description: The status of the order
+                        createdAt:
+                          type: string
+                          format: date-time
+                          example: "2024-06-24T04:09:24.324Z"
+                          description: The creation time of the order
+                        updatedAt:
+                          type: string
+                          format: date-time
+                          example: "2024-06-24T04:09:24.324Z"
+                          description: The last update time of the order
+      x-tryit-out:
+        method: GET
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        price:
+                          type: number
+                          example: 0
+                          description: The price of the order
+                        stopPrice:
+                          type: null
+                          description: The stop price of the order
+                        executedPrice:
+                          type: number
+                          example: 3394.3322747747743
+                          description: The executed price of the order
+                        quantity:
+                          type: number
+                          example: 0.222
+                          description: The quantity of the order
+                        executedQty:
+                          type: number
+                          example: 0.222
+                          description: The executed quantity of the order
+                        quoteQty:
+                          type: number
+                          example: 753.541765
+                          description: The quote quantity of the order
+                        executedQuoteQty:
+                          type: number
+                          example: 753.541765
+                          description: The executed quote quantity of the order
+                        useQuoteQty:
+                          type: boolean
+                          example: false
+                          description: Whether to use quote quantity for the order
+                        liquidityStatus:
+                          type: integer
+                          example: 0
+                          description: The liquidity status of the order
+                        liquiditySymbol:
+                          type: string
+                          example: "ETHUSDT"
+                          description: The liquidity symbol of the order
+                        liquidityUsdtPrice:
+                          type: number
+                          example: 1
+                          description: The liquidity USDT price of the order
+                        liquidityTransferPrice:
+                          type: number
+                          example: 0
+                          description: The liquidity transfer price of the order
+                        liquidityOrderId:
+                          type: null
+                          description: The liquidity order ID of the order
+                        liquidityTransferFee:
+                          type: number
+                          example: 0
+                          description: The liquidity transfer fee of the order
+                        limitPrice:
+                          type: number
+                          example: 0
+                          description: The limit price of the order
+                        internalError:
+                          type: boolean
+                          example: false
+                          description: Whether there was an internal error with the order
+                        displayingId:
+                          type: integer
+                          example: 434256
+                          description: The displaying ID of the order
+                        userId:
+                          type: integer
+                          example: 18
+                          description: The ID of the user who placed the order
+                        side:
+                          type: string
+                          example: "SELL"
+                          description: The side of the order (buy/sell)
+                        type:
+                          type: string
+                          example: "MARKET"
+                          description: The type of the order
+                        symbol:
+                          type: string
+                          example: "ETHUSDT"
+                          description: The trading pair symbol of the order
+                        baseAsset:
+                          type: string
+                          example: "ETH"
+                          description: The base asset of the order
+                        baseAssetId:
+                          type: integer
+                          example: 2
+                          description: The ID of the base asset of the order
+                        quoteAsset:
+                          type: string
+                          example: "USDT"
+                          description: The quote asset of the order
+                        quoteAssetId:
+                          type: integer
+                          example: 22
+                          description: The ID of the quote asset of the order
+                        status:
+                          type: string
+                          example: "FILLED"
+                          description: The status of the order
+                        createdAt:
+                          type: string
+                          format: date-time
+                          example: "2024-06-24T04:09:24.324Z"
+                          description: The creation time of the order
+                        updatedAt:
+                          type: string
+                          format: date-time
+                          example: "2024-06-24T04:09:24.324Z"
+                          description: The last update time of the order

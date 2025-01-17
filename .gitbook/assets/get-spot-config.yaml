@@ -1,0 +1,306 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://nami.exchange
+    description: Nami Exchange API
+paths:
+  /api/v3/spot/config:
+    get:
+      summary: Exchange Info
+      parameters:
+        - name: symbol
+          in: query
+          description: Trading pair symbol
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        symbol:
+                          type: string
+                          example: "ZRXVNDC"
+                        status:
+                          type: string
+                          example: "TRADING"
+                        baseAsset:
+                          type: string
+                          example: "ZRX"
+                        baseAssetPrecision:
+                          type: integer
+                          example: 8
+                        quoteAsset:
+                          type: string
+                          example: "VNDC"
+                        quotePrecision:
+                          type: integer
+                          example: 8
+                        quoteAssetPrecision:
+                          type: integer
+                          example: 8
+                        baseCommissionPrecision:
+                          type: integer
+                          example: 8
+                        quoteCommissionPrecision:
+                          type: integer
+                          example: 8
+                        orderTypes:
+                          type: array
+                          items:
+                            type: string
+                          example:
+                            - "LIMIT"
+                            - "MARKET"
+                            - "STOP_LIMIT"
+                            - "OCO"
+                        icebergAllowed:
+                          type: boolean
+                          example: true
+                        ocoAllowed:
+                          type: boolean
+                          example: true
+                        quoteOrderQtyMarketAllowed:
+                          type: boolean
+                          example: true
+                        isSpotTradingAllowed:
+                          type: boolean
+                          example: true
+                        isMarginTradingAllowed:
+                          type: boolean
+                          example: true
+                        filters:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              filterType:
+                                type: string
+                              minPrice:
+                                type: number
+                              maxPrice:
+                                type: number
+                              tickSize:
+                                type: number
+                              minQty:
+                                type: string
+                              maxQty:
+                                type: string
+                              stepSize:
+                                type: string
+                              limit:
+                                type: integer
+                              minTrailingAboveDelta:
+                                type: number
+                              maxTrailingAboveDelta:
+                                type: number
+                              minTrailingBelowDelta:
+                                type: number
+                              maxTrailingBelowDelta:
+                                type: number
+                              bidMultiplierUp:
+                                type: string
+                              bidMultiplierDown:
+                                type: string
+                              askMultiplierUp:
+                                type: string
+                              askMultiplierDown:
+                                type: string
+                              avgPriceMins:
+                                type: integer
+                              minNotional:
+                                type: number
+                              applyMinToMarket:
+                                type: boolean
+                              maxNotional:
+                                type: string
+                              applyMaxToMarket:
+                                type: boolean
+                              maxNumOrders:
+                                type: integer
+                              maxNumStopLimitOrders:
+                                type: integer
+                              maxNumOcoOrders:
+                                type: integer
+                              maxNumAlgoOrders:
+                                type: integer
+                        permissions:
+                          type: array
+                          items:
+                            type: string
+                          example:
+                            - "SPOT"
+                            - "MARGIN"
+                        baseAssetId:
+                          type: integer
+                        quoteAssetId:
+                          type: integer
+                        liquidityBroker:
+                          type: string
+                        createdAt:
+                          type: string
+                          format: date-time
+                        updatedAt:
+                          type: string
+                          format: date-time
+      x-tryit-out:
+        method: GET
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: "ok"
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          symbol:
+                            type: string
+                            example: "ZRXVNDC"
+                          status:
+                            type: string
+                            example: "TRADING"
+                          baseAsset:
+                            type: string
+                            example: "ZRX"
+                          baseAssetPrecision:
+                            type: integer
+                            example: 8
+                          quoteAsset:
+                            type: string
+                            example: "VNDC"
+                          quotePrecision:
+                            type: integer
+                            example: 8
+                          quoteAssetPrecision:
+                            type: integer
+                            example: 8
+                          baseCommissionPrecision:
+                            type: integer
+                            example: 8
+                          quoteCommissionPrecision:
+                            type: integer
+                            example: 8
+                          orderTypes:
+                            type: array
+                            items:
+                              type: string
+                            example:
+                              - "LIMIT"
+                              - "MARKET"
+                              - "STOP_LIMIT"
+                              - "OCO"
+                          icebergAllowed:
+                            type: boolean
+                            example: true
+                          ocoAllowed:
+                            type: boolean
+                            example: true
+                          quoteOrderQtyMarketAllowed:
+                            type: boolean
+                            example: true
+                          isSpotTradingAllowed:
+                            type: boolean
+                            example: true
+                          isMarginTradingAllowed:
+                            type: boolean
+                            example: true
+                          filters:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                filterType:
+                                  type: string
+                                minPrice:
+                                  type: number
+                                maxPrice:
+                                  type: number
+                                tickSize:
+                                  type: number
+                                minQty:
+                                  type: string
+                                maxQty:
+                                  type: string
+                                stepSize:
+                                  type: string
+                                limit:
+                                  type: integer
+                                minTrailingAboveDelta:
+                                  type: number
+                                maxTrailingAboveDelta:
+                                  type: number
+                                minTrailingBelowDelta:
+                                  type: number
+                                maxTrailingBelowDelta:
+                                  type: number
+                                bidMultiplierUp:
+                                  type: string
+                                bidMultiplierDown:
+                                  type: string
+                                askMultiplierUp:
+                                  type: string
+                                askMultiplierDown:
+                                  type: string
+                                avgPriceMins:
+                                  type: integer
+                                minNotional:
+                                  type: number
+                                applyMinToMarket:
+                                  type: boolean
+                                maxNotional:
+                                  type: string
+                                applyMaxToMarket:
+                                  type: boolean
+                                maxNumOrders:
+                                  type: integer
+                                maxNumStopLimitOrders:
+                                  type: integer
+                                maxNumOcoOrders:
+                                  type: integer
+                                maxNumAlgoOrders:
+                                  type: integer
+                          permissions:
+                            type: array
+                            items:
+                              type: string
+                            example:
+                              - "SPOT"
+                              - "MARGIN"
+                          baseAssetId:
+                            type: integer
+                          quoteAssetId:
+                            type: integer
+                          liquidityBroker:
+                            type: string
+                          createdAt:
+                            type: string
+                            format: date-time
+                          updatedAt:
+                            type: string
+                            format: date-time

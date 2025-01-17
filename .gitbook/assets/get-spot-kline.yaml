@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://datav2.nami.exchange
+    description: Nami Exchange API
+paths:
+  /api/v1/chart/history:
+    get:
+      summary: Exchange Info
+      parameters:
+        - name: from
+          in: query
+          description: Start timestamp (in seconds) of the data range
+          required: true
+          schema:
+            type: integer
+        - name: to
+          in: query
+          description: End timestamp (in seconds) of the data range
+          required: true
+          schema:
+            type: integer
+        - name: resolution
+          in: query
+          description: Resolution of the data (e.g. 1m, 5m, 1h)
+          required: true
+          schema:
+            type: string
+        - name: broker
+          in: query
+          description: Broker name (e.g. NAMI_SPOT)
+          required: false
+          schema:
+            type: string
+        - name: symbol
+          in: query
+          description: Trading pair symbol
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: number
+                    description: >-
+                      0: Timestamp (Unix),
+                      1: Open price,
+                      2: High price,
+                      3: Low price,
+                      4: Close price,
+                      5: Volume,
+                      6: Trades
+                example: 
+                  [
+                    [
+                      1715889600,
+                      65144.26,
+                      65289.99,
+                      65054.24,
+                      65273.9,
+                      6.946629999999999,
+                      452728
+                    ]
+                  ]       
+      x-tryit-out:
+        method: GET
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: array
+                    items:
+                      type: number
+                      description: >-
+                        0: Timestamp (Unix),
+                        1: Open price,
+                        2: High price,
+                        3: Low price,
+                        4: Close price,
+                        5: Volume,
+                        6: Trades
+                  example: 
+                    [
+                      [
+                        1715889600,
+                        65144.26,
+                        65289.99,
+                        65054.24,
+                        65273.9,
+                        6.946629999999999,
+                        452728
+                      ]
+                    ]
+                          

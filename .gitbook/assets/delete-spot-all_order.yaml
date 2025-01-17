@@ -1,0 +1,358 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://nami.exchange
+    description: Nami Exchange API
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+security:
+  - ApiKeyAuth: []
+paths:
+  /api/v4/spot/all_order:
+    delete:
+      summary: Close order
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orders:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      displayingId:
+                        type: number
+                        description: The displaying ID of the order
+                      symbol:
+                        type: string
+                        description: The symbol of the order
+                allowNotification:
+                  type: boolean
+                  example: false
+                signature:
+                  type: string
+                  description: The signature is the secret key encoded as ASCII data. It is required for authenticating the request.
+                timestamp:
+                  type: string
+                  format: date-time
+                  description: The timestamp is the time the request was sent.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        price:
+                          type: number
+                          example: 62865.88
+                          description: The price of the order
+                        stopPrice:
+                          type: null
+                          description: The stop price of the order
+                        executedPrice:
+                          type: number
+                          example: 0
+                          description: The executed price of the order
+                        quantity:
+                          type: number
+                          example: 0.00258
+                          description: The quantity of the order
+                        executedQty:
+                          type: number
+                          example: 0
+                          description: The executed quantity of the order
+                        quoteQty:
+                          type: number
+                          example: 162.1939704
+                          description: The quote quantity of the order
+                        executedQuoteQty:
+                          type: number
+                          example: 0
+                          description: The executed quote quantity of the order
+                        useQuoteQty:
+                          type: boolean
+                          example: false
+                          description: Whether to use quote quantity for the order
+                        liquidityStatus:
+                          type: number
+                          example: 1
+                          description: The liquidity status of the order
+                        liquiditySymbol:
+                          type: string
+                          example: "BTCUSDT"
+                          description: The liquidity symbol of the order
+                        liquidityUsdtPrice:
+                          type: number
+                          example: 1
+                          description: The liquidity USDT price of the order
+                        liquidityTransferPrice:
+                          type: number
+                          example: 62865.88
+                          description: The liquidity transfer price of the order
+                        liquidityOrderId:
+                          type: string
+                          example: "11800930"
+                          description: The liquidity order ID of the order
+                        liquidityTransferFee:
+                          type: number
+                          example: 0
+                          description: The liquidity transfer fee of the order
+                        limitPrice:
+                          type: number
+                          example: 0
+                          description: The limit price of the order
+                        internalError:
+                          type: boolean
+                          example: false
+                          description: Whether there is an internal error with the order
+                        displayingId:
+                          type: number
+                          example: 435392
+                          description: The displaying ID of the order
+                        userId:
+                          type: number
+                          example: 1233
+                          description: The ID of the user who placed the order
+                        side:
+                          type: string
+                          example: "BUY"
+                          description: The side of the order (BUY or SELL)
+                        type:
+                          type: string
+                          example: "LIMIT"
+                          description: The type of the order
+                        feeMetadata:
+                          type: object
+                          properties:
+                            assetId:
+                              type: number
+                              example: 22
+                              description: The ID of the fee asset
+                            asset:
+                              type: string
+                              example: "USDT"
+                              description: The fee asset symbol
+                            value:
+                              type: number
+                              example: 0.1621939704
+                              description: The fee value
+                            feeRatio:
+                              type: number
+                              example: 0.001
+                              description: The fee ratio
+                            executed:
+                              type: number
+                              example: 0
+                              description: The executed fee
+                        symbol:
+                          type: string
+                          example: "BTCUSDT"
+                          description: The symbol of the order
+                        baseAsset:
+                          type: string
+                          example: "BTC"
+                          description: The base asset of the order
+                        baseAssetId:
+                          type: number
+                          example: 9
+                          description: The ID of the base asset
+                        quoteAsset:
+                          type: string
+                          example: "USDT"
+                          description: The quote asset of the order
+                        quoteAssetId:
+                          type: number
+                          example: 22
+                          description: The ID of the quote asset
+                        status:
+                          type: string
+                          example: "CANCELED"
+                          description: The status of the order
+                        createdAt:
+                          type: string
+                          format: date-time
+                          example: "2024-07-01T10:25:46.327Z"
+                          description: The creation time of the order
+                        updatedAt:
+                          type: string
+                          format: date-time
+                          example: "2024-07-01T10:25:55.404Z"
+                          description: The last update time of the order
+      x-tryit-out:
+        method: DELETE
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+          "200":
+            content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        price:
+                          type: number
+                          example: 62865.88
+                          description: The price of the order
+                        stopPrice:
+                          type: null
+                          description: The stop price of the order
+                        executedPrice:
+                          type: number
+                          example: 0
+                          description: The executed price of the order
+                        quantity:
+                          type: number
+                          example: 0.00258
+                          description: The quantity of the order
+                        executedQty:
+                          type: number
+                          example: 0
+                          description: The executed quantity of the order
+                        quoteQty:
+                          type: number
+                          example: 162.1939704
+                          description: The quote quantity of the order
+                        executedQuoteQty:
+                          type: number
+                          example: 0
+                          description: The executed quote quantity of the order
+                        useQuoteQty:
+                          type: boolean
+                          example: false
+                          description: Whether to use quote quantity for the order
+                        liquidityStatus:
+                          type: number
+                          example: 1
+                          description: The liquidity status of the order
+                        liquiditySymbol:
+                          type: string
+                          example: "BTCUSDT"
+                          description: The liquidity symbol of the order
+                        liquidityUsdtPrice:
+                          type: number
+                          example: 1
+                          description: The liquidity USDT price of the order
+                        liquidityTransferPrice:
+                          type: number
+                          example: 62865.88
+                          description: The liquidity transfer price of the order
+                        liquidityOrderId:
+                          type: string
+                          example: "11800930"
+                          description: The liquidity order ID of the order
+                        liquidityTransferFee:
+                          type: number
+                          example: 0
+                          description: The liquidity transfer fee of the order
+                        limitPrice:
+                          type: number
+                          example: 0
+                          description: The limit price of the order
+                        internalError:
+                          type: boolean
+                          example: false
+                          description: Whether there is an internal error with the order
+                        displayingId:
+                          type: number
+                          example: 435392
+                          description: The displaying ID of the order
+                        userId:
+                          type: number
+                          example: 1233
+                          description: The ID of the user who placed the order
+                        side:
+                          type: string
+                          example: "BUY"
+                          description: The side of the order (BUY or SELL)
+                        type:
+                          type: string
+                          example: "LIMIT"
+                          description: The type of the order
+                        feeMetadata:
+                          type: object
+                          properties:
+                            assetId:
+                              type: number
+                              example: 22
+                              description: The ID of the fee asset
+                            asset:
+                              type: string
+                              example: "USDT"
+                              description: The fee asset symbol
+                            value:
+                              type: number
+                              example: 0.1621939704
+                              description: The fee value
+                            feeRatio:
+                              type: number
+                              example: 0.001
+                              description: The fee ratio
+                            executed:
+                              type: number
+                              example: 0
+                              description: The executed fee
+                        symbol:
+                          type: string
+                          example: "BTCUSDT"
+                          description: The symbol of the order
+                        baseAsset:
+                          type: string
+                          example: "BTC"
+                          description: The base asset of the order
+                        baseAssetId:
+                          type: number
+                          example: 9
+                          description: The ID of the base asset
+                        quoteAsset:
+                          type: string
+                          example: "USDT"
+                          description: The quote asset of the order
+                        quoteAssetId:
+                          type: number
+                          example: 22
+                          description: The ID of the quote asset
+                        status:
+                          type: string
+                          example: "CANCELED"
+                          description: The status of the order
+                        createdAt:
+                          type: string
+                          format: date-time
+                          example: "2024-07-01T10:25:46.327Z"
+                          description: The creation time of the order
+                        updatedAt:
+                          type: string
+                          format: date-time
+                          example: "2024-07-01T10:25:55.404Z"
+                          description: The last update time of the order

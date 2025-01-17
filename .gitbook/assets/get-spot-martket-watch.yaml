@@ -1,0 +1,225 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://nami.exchange
+    description: Nami Exchange API
+paths:
+  /api/v3/spot/market_watch:
+    get:
+      summary: Martket Price
+      parameters:
+        - name: symbol
+          in: query
+          description: Trading pair symbol
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        a:
+                          type: integer
+                          example: 0
+                        b:
+                          type: string
+                          example: "ETH"
+                        p:
+                          type: number
+                          example: 3437.59
+                        ld:
+                          type: number
+                          example: 3490.58
+                        h:
+                          type: number
+                          example: 3498.99
+                        l:
+                          type: number
+                          example: 3426.67
+                        hh:
+                          type: number
+                          example: 3451.74
+                        lh:
+                          type: number
+                          example: 3434.53
+                        vb:
+                          type: number
+                          example: 57771.715600000025
+                        vq:
+                          type: number
+                          example: 200279763.829316
+                        s:
+                          type: string
+                          example: "ETHUSDT"
+                        qi:
+                          type: integer
+                          example: 22
+                        bi:
+                          type: integer
+                          example: 2
+                        q:
+                          type: string
+                          example: "USDT"
+                        u:
+                          type: boolean
+                          example: false
+                        lq:
+                          type: number
+                          example: 0.024
+                        lQ:
+                          type: integer
+                          example: 83
+                        t:
+                          type: integer
+                          example: 1719906507691
+                        ph:
+                          type: number
+                          example: 3450.36
+                        av:
+                          type: number
+                          example: 25050.38146000001
+                        hy:
+                          type: number
+                          example: 4092.36
+                        ly:
+                          type: integer
+                          example: 1522
+                        vc:
+                          type: integer
+                          example: 0
+                        pw:
+                          type: number
+                          example: 3394.91
+                        p1m:
+                          type: number
+                          example: 3780.91
+                        p3m:
+                          type: number
+                          example: 3278.23
+                        py:
+                          type: number
+                          example: 1937.48
+                        lbl:
+                          type: string
+                          example: "top_view"
+
+      x-tryit-out:
+        method: GET
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: "ok"
+                    data:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          a:
+                            type: integer
+                            example: 0
+                          b:
+                            type: string
+                            example: "ETH"
+                          p:
+                            type: number
+                            example: 3437.59
+                          ld:
+                            type: number
+                            example: 3490.58
+                          h:
+                            type: number
+                            example: 3498.99
+                          l:
+                            type: number
+                            example: 3426.67
+                          hh:
+                            type: number
+                            example: 3451.74
+                          lh:
+                            type: number
+                            example: 3434.53
+                          vb:
+                            type: number
+                            example: 57771.715600000025
+                          vq:
+                            type: number
+                            example: 200279763.829316
+                          s:
+                            type: string
+                            example: "ETHUSDT"
+                          qi:
+                            type: integer
+                            example: 22
+                          bi:
+                            type: integer
+                            example: 2
+                          q:
+                            type: string
+                            example: "USDT"
+                          u:
+                            type: boolean
+                            example: false
+                          lq:
+                            type: number
+                            example: 0.024
+                          lQ:
+                            type: integer
+                            example: 83
+                          t:
+                            type: integer
+                            example: 1719906507691
+                          ph:
+                            type: number
+                            example: 3450.36
+                          av:
+                            type: number
+                            example: 25050.38146000001
+                          hy:
+                            type: number
+                            example: 4092.36
+                          ly:
+                            type: integer
+                            example: 1522
+                          vc:
+                            type: integer
+                            example: 0
+                          pw:
+                            type: number
+                            example: 3394.91
+                          p1m:
+                            type: number
+                            example: 3780.91
+                          p3m:
+                            type: number
+                            example: 3278.23
+                          py:
+                            type: number
+                            example: 1937.48
+                          lbl:
+                            type: string
+                            example: "top_view"

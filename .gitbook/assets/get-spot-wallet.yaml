@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: Nami API Documentation
+  description: API Documentation for Nami Foundation
+servers:
+  - url: https://nami.exchange
+    description: Nami Exchange API
+paths:
+  /api/v4/user/balance:
+    get:
+      summary: User Wallet
+      parameters:
+        - name: currency
+          in: query
+          description: Currency symbol
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  data:
+                    type: object
+                    description: >-
+                      An object where each key is a string representing a currency identifier,
+                      and the corresponding value is an object containing the currency details.
+                    additionalProperties:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                          description: The current value of the currency.
+                          example: 0
+                        locked_value:
+                          type: number
+                          description: The amount of the currency that is locked.
+                          example: 0
+                        type:
+                          type: number
+                          description: The type identifier of the currency.
+                          example: 0
+                example:
+                  status: "ok"
+                  data:
+                    "1":
+                      value: 0
+                      locked_value: 0
+                      type: 0
+                    "2":
+                      value: 0
+                      locked_value: 0
+                      type: 0
+      x-tryit-out:
+        method: GET
+        requestBody:
+          content:
+            application/json:
+              schema: {}
+        responses:
+          "200":
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: "ok"
+                    data:
+                      type: object
+                      description: >-
+                        An object where each key is a string representing a currency identifier,
+                        and the corresponding value is an object containing the currency details.
+                      additionalProperties:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                            description: The current value of the currency.
+                            example: 0
+                          locked_value:
+                            type: number
+                            description: The amount of the currency that is locked.
+                            example: 0
+                          type:
+                            type: number
+                            description: The type identifier of the currency.
+                            example: 0
+                  example:
+                    status: "ok"
+                    data:
+                      "1":
+                        value: 0
+                        locked_value: 0
+                        type: 0
+                      "2":
+                        value: 0
+                        locked_value: 0
+                        type: 0

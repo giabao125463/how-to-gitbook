@@ -1,17 +1,22 @@
 # Table of contents
 
-* [Welcome](README.md)
-
-## Getting Started
-
-* [Quickstart](getting-started/quickstart.md)
-* [Publish your docs](getting-started/publish-your-docs.md)
-
-## Basics
-
-* [Editor](basics/editor.md)
-* [Markdown](basics/markdown.md)
-* [Images & media](basics/images-and-media.md)
-* [Interactive blocks](basics/interactive-blocks.md)
-* [OpenAPI](basics/openapi.md)
-* [Integrations](basics/integrations.md)
+* [Introduction](README.md)
+* [Change Logs](change-logs.md)
+* [Authentication](authentication.md)
+* [Rest API](rest-api/README.md)
+  * [Trading](rest-api/trading/README.md)
+    * [Create Order](rest-api/trading/create-order.md)
+    * [Close Order](rest-api/trading/close-order.md)
+    * [Close All Order](rest-api/trading/close-all-order.md)
+    * [Get Order Open](rest-api/trading/get-order-open.md)
+    * [Get Order History](rest-api/trading/get-order-history.md)
+    * [Get Order Trade History](rest-api/trading/get-order-trade-history.md)
+  * [Market Data](rest-api/market-data/README.md)
+    * [KLine Data](rest-api/market-data/kline-data.md)
+    * [Exchange Info](rest-api/market-data/exchange-info.md)
+    * [Get Recent Trade](rest-api/market-data/get-recent-trade.md)
+    * [Get 24h ticker price](rest-api/market-data/get-24h-ticker-price.md)
+    * [Get Market Depth](rest-api/market-data/get-market-depth.md)
+  * [Account](rest-api/account/README.md)
+    * [Get Wallet](rest-api/account/get-wallet.md)
+* [Error Code](error-code.md)
