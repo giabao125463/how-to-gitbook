@@ -55,3 +55,58 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
   "signature": "a1b2c3d4e5f6g7h8i9j0k",
   "timestamp": 1670000000000
 }
+```
+
+#### Response
+
+{% tabs %}
+{% tab title="200" %}
+{
+  "status": "ok",
+  "data": {
+    "displayingId": 435372,
+    "userId": 18,
+    "side": "BUY",
+    "type": "LIMIT",
+    "price": 62877.99,
+    "liquidityStatus": 1,
+    "quantity": 0.07474,
+    "executedQty": 0,
+    "quoteQty": 4699.5009726,
+    "executedQuoteQty": 0,
+    "liquidityUsdtPrice": 1,
+    "liquidityTransferPrice": 62877.99,
+    "liquiditySymbol": "BTCUSDT",
+    "liquidityOrderId": "11779887",
+    "feeMetadata": {
+      "assetId": 22,
+      "asset": "USDT",
+      "value": 4.6995009726,
+      "feeRatio": 0.001,
+      "executed": 0
+    },
+    "useQuoteQty": false,
+    "symbol": "BTCUSDT",
+    "baseAsset": "BTC",
+    "baseAssetId": 9,
+    "quoteAsset": "USDT",
+    "quoteAssetId": 22,
+    "status": "CANCELED",
+    "stopPrice": 0
+  }
+}
+{% endtab %}
+
+{% tab title="400" %}
+```json
+{
+    "status": "BROKER_ERROR",
+    "code": 6104,
+    "data": {
+        "requestId": "6ff66697-2742-4caf-acad-f97e9cc3596d"
+    },
+    "message": null
+}
+```
+{% endtab %} 
+{% endtabs %}
