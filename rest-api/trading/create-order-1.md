@@ -38,18 +38,18 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 **Body**
 
-| Name        | Type   | Description      |
-| --------    | ------ | ---------------- |
-| `symbol`    | string | Name of the user |
-| `price`     | number | Age of the user  |
-| `stopPrice` | number | Age of the user  |
-| `side`      | number | Age of the user  |
-| `type`      | number | Age of the user  |
-| `quantity`      | number | Age of the user  |
-| `quoteOrderQty`      | number | Age of the user  |
-| `useQuoteQty`      | number | Age of the user  |
-| `signature`      | number | Age of the user  |
-| `timestamp`      | number | Age of the user  |
+| Name        | Type   | Description      | Possible Values |
+| --------    | ------ | ---------------- | ---------------- |
+| `symbol`    | string | The trading symbol | Read [Spot Config](../market-data/exchange-info.md) to get symbol available |
+| `price`     | number | The price at which to place the order.  | Any positive integer |
+| `stopPrice` | number | The stop price for a stop order.  | Any positive integer |
+| `side`      | string | The side of the order  | BUY or SELL |
+| `type`      | string | The type of the order  | |
+| `quantity`      | number | The quantity of the asset to buy or sell.  | |
+| `quoteOrderQty`      | number | The quote order quantity.  | |
+| `useQuoteQty`      | boolean | Whether to use the quote order quantity.  | |
+| `signature`      | string | The signature is the secret key encoded as ASCII data  | |
+| `timestamp`      | number | The timestamp is the time the request was sent.  | |
 
 **Response**
 
