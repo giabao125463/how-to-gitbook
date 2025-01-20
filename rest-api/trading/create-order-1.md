@@ -31,25 +31,25 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 **Headers**
 
-| Name          | Value              |
-| ------------- | ------------------ |
-| Content-Type  | `application/json` |
-| x-api-key     | `<Your secret key>`|
+| Name         | Value               |
+| ------------ | ------------------- |
+| Content-Type | `application/json`  |
+| x-api-key    | `<Your secret key>` |
 
 **Body**
 
-| Name        | Type   | Description      | Possible Values |
-| --------    | ------ | ---------------- | ---------------- |
-| `symbol`    | string | The trading symbol | Read [Spot Config](../market-data/exchange-info.md) to get symbol available |
-| `price`     | number | The price at which to place the order.  | Any positive integer |
-| `stopPrice` | number | The stop price for a stop order.  | Any positive integer |
-| `side`      | string | The side of the order  | BUY or SELL |
-| `type`      | string | The type of the order  | |
-| `quantity`      | number | The quantity of the asset to buy or sell.  | |
-| `quoteOrderQty`      | number | The quote order quantity.  | |
-| `useQuoteQty`      | boolean | Whether to use the quote order quantity.  | |
-| `signature`      | string | The signature is the secret key encoded as ASCII data  | |
-| `timestamp`      | number | The timestamp is the time the request was sent.  | |
+| Name            | Type    | Description                                           | Possible Values                                                                |
+| --------------- | ------- | ----------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `symbol`        | string  | The trading symbol                                    | Read [Spot Config](../market-data/exchange-info.md) to get symbol available    |
+| `price`         | number  | The price at which to place the order.                | Any positive integer                                                           |
+| `stopPrice`     | number  | The stop price for a stop order.                      | Any positive integer                                                           |
+| `side`          | string  | The side of the order                                 | BUY \| SELL                                                                    |
+| `type`          | string  | The type of the order                                 | LIMIT \| MARKET \| STOP\_LIMIT \| OCO                                          |
+| `quantity`      | number  | The quantity of the asset to buy or sell.             | Any positive integer                                                           |
+| `quoteOrderQty` | number  | The quote order quantity.                             | Any positive integer                                                           |
+| `useQuoteQty`   | boolean | Whether to use the quote order quantity.              | <p>True use <code>quoteOrderQty</code>.<br>False use <code>quantity</code></p> |
+| `signature`     | string  | The signature is the secret key encoded as ASCII data |                                                                                |
+| `timestamp`     | number  | The timestamp is the time the request was sent.       | Millisecond only                                                               |
 
 **Response**
 
@@ -77,4 +77,3 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 ```
 {% endtab %}
 {% endtabs %}
-
