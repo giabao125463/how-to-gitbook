@@ -38,17 +38,17 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 **Query Parameters**
 
-| Name            | In    | Type      | Description                                      | Required | Example            |
-| --------------- | ----- | --------- | ------------------------------------------------ | -------- | ------------------ |
-| `side`          | query | string    | Side of the order (buy/sell)                    | No       | BUY                |
-| `symbol`        | query | string    | Trading pair symbol                             | No       | ETHUSDT            |
-| `hideCanceled`  | query | boolean   | Hide canceled orders                            | No       | true               |
-| `pageSize`      | query | integer   | Number of orders per page                       | No       | 10                 |
-| `page`          | query | integer   | Page number                                     | No       | 1                  |
-| `timeFrom`      | query | date-time | Filter orders from this time                    | No       | 2024-01-01T00:00:00Z |
-| `timeTo`        | query | date-time | Filter orders up to this time                   | No       | 2024-12-31T23:59:59Z |
-| `signature`     | query | string    | The signature is the secret key encoded as ASCII data. It is required for authenticating the request. | Yes      | a1b2c3d4e5f6g7h8i9j0k |
-| `timestamp`     | query | date-time | The timestamp is the time the request was sent. | Yes      | 1670000000000      |
+| Name           | Type      | Description                                                                                           | Required | Example               |
+| -------------- | --------- | ----------------------------------------------------------------------------------------------------- | -------- | --------------------- |
+| `side`         | string    | Side of the order (buy/sell)                                                                          | No       | BUY                   |
+| `symbol`       | string    | Trading pair symbol                                                                                   | No       | ETHUSDT               |
+| `hideCanceled` | boolean   | Hide canceled orders                                                                                  | No       | true                  |
+| `pageSize`     | integer   | Number of orders per page                                                                             | No       | 10                    |
+| `page`         | integer   | Page number                                                                                           | No       | 1                     |
+| `timeFrom`     | date-time | Filter orders from this time                                                                          | No       | 2024-01-01T00:00:00Z  |
+| `timeTo`       | date-time | Filter orders up to this time                                                                         | No       | 2024-12-31T23:59:59Z  |
+| `signature`    | string    | The signature is the secret key encoded as ASCII data. It is required for authenticating the request. | Yes      | a1b2c3d4e5f6g7h8i9j0k |
+| `timestamp`    | date-time | The timestamp is the time the request was sent.                                                       | Yes      | 1670000000000         |
 
 **Response**
 
@@ -91,7 +91,6 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
   ]
 }
 ```
-
 {% endtab %}
 
 {% tab title="400" %}
@@ -105,4 +104,5 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
     "message": null
 }
 ```
-{% endtab %} {% endtabs %}
+{% endtab %}
+{% endtabs %}
