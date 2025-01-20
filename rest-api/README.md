@@ -28,8 +28,8 @@ Before making a call to the Nami API, you need to generate a signature using you
 \
 Dive into the specifics of each API endpoint by checking out our complete documentation.
 
-{% content-ref url="trading/create-order.md" %}
-[create-order.md](trading/create-order.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="trading/close-order.md" %}
