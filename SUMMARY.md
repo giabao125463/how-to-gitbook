@@ -11,6 +11,8 @@
     * [Get Order Open](rest-api/trading/get-order-open.md)
     * [Get Order History](rest-api/trading/get-order-history.md)
     * [Get Order Trade History](rest-api/trading/get-order-trade-history.md)
+    * [Create Order](rest-api/trading/create-order-1.md)
+    * [Page 1](rest-api/trading/page-1.md)
   * [Market Data](rest-api/market-data/README.md)
     * [KLine Data](rest-api/market-data/kline-data.md)
     * [Exchange Info](rest-api/market-data/exchange-info.md)
