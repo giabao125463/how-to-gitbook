@@ -25,25 +25,31 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 2. You must provide a valid `timestamp` and `signature` in the request body.
 3. The `x-api-key` must be included in the request headers for authentication.
 
-## Create a new user
+## Place Order
 
-<mark style="color:green;">`POST`</mark> `/users`
-
-
+<mark style="color:green;">`POST`</mark> `https://nami.exchange/api/v4/spot/order`
 
 **Headers**
 
 | Name          | Value              |
 | ------------- | ------------------ |
 | Content-Type  | `application/json` |
-| Authorization | `Bearer <token>`   |
+| x-api-key     | `<Your secret key>`|
 
 **Body**
 
-| Name   | Type   | Description      |
-| ------ | ------ | ---------------- |
-| `name` | string | Name of the user |
-| `age`  | number | Age of the user  |
+| Name        | Type   | Description      |
+| --------    | ------ | ---------------- |
+| `symbol`    | string | Name of the user |
+| `price`     | number | Age of the user  |
+| `stopPrice` | number | Age of the user  |
+| `side`      | number | Age of the user  |
+| `type`      | number | Age of the user  |
+| `quantity`      | number | Age of the user  |
+| `quoteOrderQty`      | number | Age of the user  |
+| `useQuoteQty`      | number | Age of the user  |
+| `signature`      | number | Age of the user  |
+| `timestamp`      | number | Age of the user  |
 
 **Response**
 
@@ -61,7 +67,12 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 {% tab title="400" %}
 ```json
 {
-  "error": "Invalid request"
+    "status": "BROKER_ERROR",
+    "code": 6104,
+    "data": {
+        "requestId": "6ff66697-2742-4caf-acad-f97e9cc3596d"
+    },
+    "message": null
 }
 ```
 {% endtab %}
