@@ -110,7 +110,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 ## Place Order LIMIT
 
 {% tabs %}
-{% tab title="200" %}
+{% tab title="Body" %}
 ```json
 {
     "symbol": "NAOVNST",
@@ -180,7 +180,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 ## Place Order MARKET
 
 {% tabs %}
-{% tab title="200" %}
+{% tab title="Body" %}
 ```json
 {
     "symbol": "NAOVNST",
@@ -250,7 +250,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 ## Place Order STOP_LIMIT
 
 {% tabs %}
-{% tab title="200" %}
+{% tab title="Body" %}
 ```json
 {
     "symbol": "NAMIVNDC",
@@ -321,7 +321,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 ## Place Order OCO
 
 {% tabs %}
-{% tab title="200" %}
+{% tab title="Body" %}
 ```json
 {
     "symbol": "BTCUSDT",
