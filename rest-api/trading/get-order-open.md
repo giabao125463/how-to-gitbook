@@ -38,11 +38,11 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 **Query Parameters**
 
-| Name            | In    | Type      | Description                                              | Required | Example   |
-| --------------- | ----- | --------- | -------------------------------------------------------- | -------- | --------- |
-| `filterByPair`  | query | string    | Filter open orders by a specific trading pair (e.g., BTC/USD). | No       | BTC/USD   |
-| `signature`     | query | string    | The signature is the secret key encoded as ASCII data. It is required for authenticating the request. | Yes      | a1b2c3d4e5f6g7h8i9j0k |
-| `timestamp`     | query | date-time | The timestamp is the time the request was sent.          | Yes      | 1670000000000 |
+| Name            | Type      | Description                                              | Required | Example   |
+| --------------- | --------- | -------------------------------------------------------- | -------- | --------- |
+| `filterByPair`  | string    | Filter open orders by a specific trading pair (e.g., BTC/USD). | No       | BTC/USD   |
+| `signature`     | string    | The signature is the secret key encoded as ASCII data. It is required for authenticating the request. | Yes      | a1b2c3d4e5f6g7h8i9j0k |
+| `timestamp`     | date-time | The timestamp is the time the request was sent.          | Yes      | 1670000000000 |
 
 **Response**
 

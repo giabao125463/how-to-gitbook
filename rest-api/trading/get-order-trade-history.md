@@ -38,17 +38,17 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 **Query Parameters**
 
-| Name           | In    | Type      | Description                                              | Required | Example         |
-| -------------- | ----- | --------- | -------------------------------------------------------- | -------- | --------------- |
-| `side`         | query | string    | The side of the order (buy/sell).                       | No       | buy             |
-| `symbol`       | query | string    | Trading pair symbol.                                    | No       | BTC/USD         |
-| `hideCanceled` | query | boolean   | Whether to hide canceled orders.                        | No       | true            |
-| `pageSize`     | query | integer   | Number of orders per page.                              | No       | 50              |
-| `page`         | query | integer   | Page number.                                            | No       | 1               |
-| `timeFrom`     | query | date-time | Filter orders from this time.                           | No       | 2025-01-01T00:00:00Z |
-| `timeTo`       | query | date-time | Filter orders up to this time.                          | No       | 2025-01-10T00:00:00Z |
-| `signature`    | query | string    | The signature is the secret key encoded as ASCII data. It is required for authenticating the request. | Yes      | a1b2c3d4e5f6g7h8i9j0k |
-| `timestamp`    | query | date-time | The timestamp is the time the request was sent.         | Yes      | 1670000000000   |
+| Name           | Type      | Description                                              | Required | Example         |
+| -------------- | --------- | -------------------------------------------------------- | -------- | --------------- |
+| `side`         | string    | The side of the order (buy/sell).                       | No       | buy             |
+| `symbol`       | string    | Trading pair symbol.                                    | No       | BTC/USD         |
+| `hideCanceled` | boolean   | Whether to hide canceled orders.                        | No       | true            |
+| `pageSize`     | integer   | Number of orders per page.                              | No       | 50              |
+| `page`         | integer   | Page number.                                            | No       | 1               |
+| `timeFrom`     | date-time | Filter orders from this time.                           | No       | 2025-01-01T00:00:00Z |
+| `timeTo`       | date-time | Filter orders up to this time.                          | No       | 2025-01-10T00:00:00Z |
+| `signature`    | string    | The signature is the secret key encoded as ASCII data. It is required for authenticating the request. | Yes      | a1b2c3d4e5f6g7h8i9j0k |
+| `timestamp`    | date-time | The timestamp is the time the request was sent.         | Yes      | 1670000000000   |
 
 **Response**
 

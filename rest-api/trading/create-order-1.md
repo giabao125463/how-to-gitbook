@@ -119,7 +119,9 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
     "quantity": 500,
     "quoteOrderQty": 1450000,
     "price": 2900,
-    "useQuoteQty": false
+    "useQuoteQty": false,
+    "timestamp": 1737361908354,
+    "signature": "81524e9fbbba63102b98f120d88c907639a09e15534869a782f79dd6a5c1aa29"
 }
 ```
 {% endtab %}
@@ -189,7 +191,9 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
     "quantity": 1000,
     "quoteOrderQty": 2900000,
     "price": 2900,
-    "useQuoteQty": false
+    "useQuoteQty": false,
+    "timestamp": 1737361908354,
+    "signature": "81524e9fbbba63102b98f120d88c907639a09e15534869a782f79dd6a5c1aa29"
 }
 ```
 {% endtab %}
@@ -260,7 +264,9 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
     "quoteOrderQty": 270000,
     "price": 280,
     "useQuoteQty": false,
-    "stopPrice": 250
+    "stopPrice": 250,
+    "timestamp": 1737361908354,
+    "signature": "81524e9fbbba63102b98f120d88c907639a09e15534869a782f79dd6a5c1aa29"
 }
 ```
 {% endtab %}
@@ -332,7 +338,9 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
     "price": 50000,
     "useQuoteQty": false,
     "stopPrice": 63520,
-    "limitPrice": 70000
+    "limitPrice": 70000,
+    "timestamp": 1737361908354,
+    "signature": "81524e9fbbba63102b98f120d88c907639a09e15534869a782f79dd6a5c1aa29"
 }
 ```
 {% endtab %}
