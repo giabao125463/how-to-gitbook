@@ -68,6 +68,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 #### Response
 
 {% tabs %} {% tab title="200" %}
+```json
 {
   "status": "ok",
   "data": [
@@ -139,6 +140,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 {% endtab %}
 
 {% tab title="400" %}
+```json
 {
     "status": "BROKER_ERROR",
     "code": 6104,

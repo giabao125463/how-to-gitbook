@@ -61,6 +61,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 {% tabs %}
 {% tab title="200" %}
+```json
 {
   "status": "ok",
   "data": {
@@ -95,6 +96,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
     "stopPrice": 0
   }
 }
+```
 {% endtab %}
 
 {% tab title="400" %}
