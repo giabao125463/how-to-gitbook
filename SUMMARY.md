@@ -19,4 +19,8 @@
     * [Get Market Depth](rest-api/market-data/get-market-depth.md)
   * [Account](rest-api/account/README.md)
     * [Get Wallet](rest-api/account/get-wallet.md)
+  * [Socket](rest-api/socket/README.md)
+    * [Get Recent Trade](rest-api/socket/get-recent-trade.md)
+    * [Get 24h ticker price](rest-api/socket/get-24h-ticker-price.md)
+    * [Get Market Depth](rest-api/socket/get-market-depth.md)
 * [Error Code](error-code.md)
