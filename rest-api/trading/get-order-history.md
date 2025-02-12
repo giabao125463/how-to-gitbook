@@ -54,55 +54,72 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": "ok",
   "data": [
     {
-      "price": 0,
+      "price": 200,
       "stopPrice": null,
-      "executedPrice": 3394.3322747747743,
-      "quantity": 0.222,
-      "executedQty": 0.222,
-      "quoteQty": 753.541765,
-      "executedQuoteQty": 753.541765,
-      "useQuoteQty": false,
+      "executedPrice": 0,
+      "quantity": 1000,
+      "executedQty": 1000,
+      "quoteQty": 200000,
+      "executedQuoteQty": 200000,
+      "useQuoteQty": null,
       "liquidityStatus": 0,
-      "liquiditySymbol": "ETHUSDT",
-      "liquidityUsdtPrice": 1,
+      "liquiditySymbol": null,
+      "liquidityUsdtPrice": 0,
       "liquidityTransferPrice": 0,
       "liquidityOrderId": null,
       "liquidityTransferFee": 0,
-      "limitPrice": 0,
+      "limitPrice": null,
       "internalError": false,
-      "displayingId": 434256,
-      "userId": 18,
-      "side": "SELL",
-      "type": "MARKET",
-      "symbol": "ETHUSDT",
-      "baseAsset": "ETH",
-      "baseAssetId": 2,
-      "quoteAsset": "USDT",
-      "quoteAssetId": 22,
+      "_id": "678e12e7a679c0c007d3b315",
+      "displayingId": 453079,
+      "baseAsset": "NAMI",
+      "baseAssetId": 1,
+      "createdAt": "2025-01-20T09:09:59.066Z",
+      "executedType": null,
+      "feeMetadata": {
+        "feeMode": 0,
+        "originBaseQty": 1000,
+        "assetId": 39,
+        "value": 80,
+        "feeRatio": 0.0004
+      },
+      "limitOrderId": null,
+      "ocoOrderId": null,
+      "priceToCalLockAndFee": null,
+      "quoteAsset": "VNST",
+      "quoteAssetId": 39,
+      "side": "BUY",
       "status": "FILLED",
-      "createdAt": "2024-06-24T04:09:24.324Z",
-      "updatedAt": "2024-06-24T04:09:24.324Z"
+      "stopLimitOrderId": null,
+      "symbol": "NAMIVNST",
+      "type": "LIMIT",
+      "updatedAt": "2025-01-20T09:09:59.066Z",
+      "userId": 583344
     }
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="400" %}
+
 ```json
 {
-    "status": "BROKER_ERROR",
-    "code": 6104,
-    "data": {
-        "requestId": "6ff66697-2742-4caf-acad-f97e9cc3596d"
-    },
-    "message": null
+  "status": "BROKER_ERROR",
+  "code": 6104,
+  "data": {
+    "requestId": "6ff66697-2742-4caf-acad-f97e9cc3596d"
+  },
+  "message": null
 }
 ```
+
 {% endtab %}
 {% endtabs %}
