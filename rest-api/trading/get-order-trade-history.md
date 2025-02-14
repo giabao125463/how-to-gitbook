@@ -63,6 +63,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
       "_id": "6790d15914c0436561b54463",
       "symbol": "NAMIVNST",
       "side": "SELL",
+      "takerSide": "SELL",
       "displayingId": "8415",
       "orderId": 453017,
       "feeMetadata": {
