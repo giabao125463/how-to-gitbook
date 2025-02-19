@@ -39,9 +39,10 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 **Query Parameters**
 
-| Name        | Type      | Description                                                                                           | Required | Example               |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------- | -------- | --------------------- |
-| `currency`  | integer   | The currency symbol (ID).                                                                             | No       | 1                     |
+| Name        | Type      | Description           | Required | Example               |
+| ----------- | --------- | ------------------ | -------- | --------------------- |
+| `type`  | integer   | The id of wallet (Spot = 0, Future = 2).  | Yes       | 0                     |
+| `currency`  | integer   | The currency symbol (ID).  | No       | 1                     |
 | `signature` | string    | The signature is the secret key encoded as ASCII data. It is required for authenticating the request. | Yes      | a1b2c3d4e5f6g7h8i9j0k |
 | `timestamp` | date-time | The timestamp is the time the request was sent.                                                       | Yes      | 1670000000000         |
 
@@ -49,6 +50,7 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
 
 {% tabs %}
 {% tab title="200" %}
+
 ```json
 {
   "status": "ok",
@@ -66,15 +68,18 @@ Before using this endpoint, ensure you have read the [How to Generate a Signatur
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="400" %}
+
 ```json
 {
-    "statusCode": 401,
-    "message": "Missing API key, signature, or timestamp",
-    "error": "Unauthorized"
+  "statusCode": 401,
+  "message": "Missing API key, signature, or timestamp",
+  "error": "Unauthorized"
 }
 ```
+
 {% endtab %}
 {% endtabs %}
